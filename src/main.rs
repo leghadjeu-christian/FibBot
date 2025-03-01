@@ -44,7 +44,7 @@ fn main() {
             println!("{:#?}", result);
         }
     }
-    let result = post_comment(
+    let _ = post_comment(
         &owner.to_string(),
         &repo.to_string(),
         pr_number,
