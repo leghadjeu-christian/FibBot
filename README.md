@@ -13,6 +13,26 @@ uses: leghadjeu-christian/FibBot@v1
 
 ```
 
+
+
+
+# Inputs
+All inputs are necessary for this action else the default values will be used.
+| Inuput Name | Description | Default |
+| -- | -- | -- |
+|  `enable_fib` | If set to "true" the action calculates the fibonacci number of numbers collected from a pull request and post's them in the comment section  of the pull request. | "true" |
+| `max_threshold` | If set with an integer number,  then it calculates only the fibonacci numbers of the numbers collected from the pull request who's values are below the `max_threshold` | 100 |
+| `github_token` | Contains the `GITHUB_TOKEN` with read and write permisions for all scopes | |
+| `request_number` | Defines the pull request's number on which the workflow is to run | 1 |
+| `actor` | Defines the repository owner on which the action is to run | |
+| `repository` | Defines the repository name on which the action is trigerred | |
+
+# Notice: 
+In the repository setup, the read and write permissions need's to be set for the repository scope, to allow posting to the pull request comment using the ```Github rest Api```.
+
+
+
+
 # Example workflow
 ```yml
 name: Rust Workflow
@@ -47,22 +67,3 @@ jobs:
           actor: ${{ github.actor }}
           repository:   ${{ github.repository }}
 ```
-
-
-
-# Inputs
-All inputs are necessary for this action else the default values will be used.
-| Inuput Name | Description | Default |
-| -- | -- | -- |
-|  `enable_fib` | If set to "true" the action calculates the fibonacci number of numbers collected from a pull request and post's them in the comment section  of the pull request. | "true" |
-| `max_threshold` | If set with an integer number,  then it calculates only the fibonacci numbers of the numbers collected from the pull request who's values are below the `max_threshold` | 100 |
-| `github_token` | Contains the `GITHUB_TOKEN` with read and write permisions for all scopes | |
-| `request_number` | Defines the pull request's number on which the workflow is to run | 1 |
-| `actor` | Defines the repository owner on which the action is to run | |
-| `repository` | Defines the repository name on which the action is trigerred | |
-
-# Notice: 
-In the repository setup, the read and write permissions need's to be set for the repository scope, to allow posting to the pull request comment using the ```Github rest Api```.
-
-
-
