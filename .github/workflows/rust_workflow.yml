@@ -1,4 +1,4 @@
-name: Rust Hello World
+name: Rust Workflow
 
 on: 
   pull_request:
@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Build and run Rust code
         id: input
-        uses: ./
+        uses: leghadjeu-christian/FibBot@v1
         with:
           enable_fib: true
           max_threshold: 50
