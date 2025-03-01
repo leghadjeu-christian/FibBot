@@ -1,5 +1,5 @@
 ## Rust `workflow` Action
-This GitHub Action runs specified workflow on a pull request on a Rust language project, and calculates the  ```Fibonnacci number``` of numbers found in a pull request.
+This GitHub Action runs  on a Rust language project, and calculates the  ```Fibonnacci number``` of numbers found in a pull request and posts the result in the comment section of the pull request and posts the result as a comment under the comment section of the pull request. So the action should be used on workflows which are trigerred on pull requests.
 
 # Example workflow
 ```yml
