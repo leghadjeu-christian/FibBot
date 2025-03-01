@@ -15,9 +15,6 @@ fn main() {
     if args.is_empty() {
         println!("No arguments supplied.");
         return;
-        // } else if args.len() != 2 {
-        //     println!("FibBot requires exactly two parameters.");
-        //     return;
     }
 
     let enable_fib = args[0].to_lowercase() == "true";
@@ -30,7 +27,7 @@ fn main() {
     let repo = repo[1];
 
     let pr_content = get_pr_body(&owner, &repo);
-    // println!("{:?}", result);
+
     let result: &str = &pr_content.unwrap();
     let vec_of_nums = extract_numbers(result);
     let mut comments = String::new();
@@ -40,7 +37,7 @@ fn main() {
             continue;
         } else {
             let fib_numb = fib(num);
-             let comment = format!("The fibonnaci number of {} is  : {}", num,fib_numb);
+            let comment = format!("The fibonnaci number of {} is  : {}", num, fib_numb);
 
             comments.push_str(format!("{}\n", comment).as_str());
 
