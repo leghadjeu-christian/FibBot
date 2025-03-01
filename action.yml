@@ -1,0 +1,41 @@
+name: "FibBot"
+description: "Extracts numbers from PRs and computes Fibonacci sequences"
+
+inputs:
+  enable_fib:
+    description: "Enable Fibonacci calculation (true or false)"
+    required: true
+    default: "true"
+  max_threshold:
+    description: "Maximum Fibonacci number limit (integer)"
+    required: true
+    default: "100"
+  github_token:
+    description: "Github Authentication (string)"
+    required: true
+    default: "100"
+  request_number:
+    description: "Pull Resquest NUmber (integer)"
+    required: true
+    default: "1"
+  actor:
+    description: "Repo Owner (String)"
+    required: true
+    default: ""
+  repository:
+    description: "Repository Name (String)"
+    required: true
+    default: ""
+outputs:
+  input:
+    description: "Print output to logs"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.enable_fib }}
+    - ${{ inputs.max_threshold }}
+    - ${{ inputs.github_token }} 
+    - ${{ inputs.request_number}}
+    - ${{ inputs.actor }}
+    - ${{ inputs.repository }}

@@ -1,0 +1,31 @@
+name: Rust Hello World
+
+on: 
+  pull_request:
+    branches:
+      - main
+permissions:
+  pull-requests: write
+  contents: read
+          
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      repository-projects: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build and run Rust code
+        id: input
+        uses: ./
+        with:
+          enable_fib: true
+          max_threshold: 50
+          request_number: ${{ github.event.pull_request.number }}
+          github_token: ${{ secrets.GITHUB_TOKEN }} 
+          actor: ${{ github.actor }}
+          repository:   ${{ github.repository }}
