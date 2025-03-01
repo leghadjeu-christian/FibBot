@@ -49,5 +49,8 @@ All inputs are necessary for this action else the default values will be used.
 | `actor` | Defines the repository owner on which the action is to run | |
 | `repository` | Defines the repository name on which the action is trigerred | |
 
+#Notice: 
+In the repository setup, the read and write permissions need's to be set for the repository scope, to allow posting to the pull request comment using the ```Github rest Api```.
+
 
 
