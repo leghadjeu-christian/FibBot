@@ -1,4 +1,8 @@
+
+// Fibonacci functio
+
 use num_bigint::{BigUint, ToBigUint};
+
 
 /// Computes the nth Fibonacci number using BigInt.
 pub fn fib(n: u32) -> BigUint {
