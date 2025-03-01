@@ -38,7 +38,7 @@ jobs:
 
 
 
-## Inputs
+# Inputs
 All inputs are necessary for this action else the default values will be used.
 | Inuput Name | Description | Default |
 | -- | -- | -- |
