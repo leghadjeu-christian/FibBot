@@ -1,56 +1,40 @@
-// Fibonacci function
+use num_bigint::{BigUint, ToBigUint};
 
-pub fn fib(n: u32) -> u128 {
+/// Computes the nth Fibonacci number using BigInt.
+pub fn fib(n: u32) -> BigUint {
+    let mut a = 0.to_biguint().unwrap();
+    let mut b = 1.to_biguint().unwrap();
+
     if n == 0 {
-        return 0;
-    }
-    if n == 1 {
-        return 1;
-    }
+        a
+    } else if n == 1 {
+        b
+    } else {
+        for _ in 2..=n {
+            let next = &a + &b;
+            a = b;
+            b = next;
+        }
 
-    let mut prev = 0;
-    let mut curr = 1;
-
-    for _ in 2..=n {
-        let next = prev + curr;
-        prev = curr;
-        curr = next;
+        b
     }
-
-    curr
 }
 
 #[cfg(test)]
 mod tests {
+    use std::str::FromStr;
+
     use super::*;
 
     #[test]
-    fn test_fib_0() {
-        assert_eq!(fib(0), 0);
-    }
-
-    #[test]
-    fn test_fib_1() {
-        assert_eq!(fib(1), 1);
-    }
-
-    #[test]
-    fn test_fib_2() {
-        assert_eq!(fib(2), 1);
-    }
-
-    #[test]
-    fn test_fib_5() {
-        assert_eq!(fib(5), 5);
-    }
-
-    #[test]
-    fn test_fib_10() {
-        assert_eq!(fib(10), 55);
-    }
-
-    #[test]
-    fn test_fib_large() {
-        assert_eq!(fib(50), 12586269025); 
+    fn it_works() {
+        assert_eq!(
+            fib(100),
+            BigUint::from_str("354224848179261915075").unwrap()
+        );
+        assert_eq!(
+            fib(1000),
+            BigUint::from_str("43466557686937456435688527675040625802564660517371780402481729089536555417949051890403879840079255169295922593080322634775209689623239873322471161642996440906533187938298969649928516003704476137795166849228875").unwrap()
+        );
     }
 }
