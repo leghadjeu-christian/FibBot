@@ -1,4 +1,4 @@
-// Fibonacci function
+// Fibonacci functio
 
 pub fn fib(n: u32) -> u128 {
     if n == 0 {
